@@ -5,14 +5,17 @@ String desencryptMessage( String message ) {
   int finalPos = 3;
   String desencryptedMessage = '';
 
+  message = message.toLowerCase();
+
   // ignore: unnecessary_statements
-  for( finalPos = 3; finalPos <= message.length; finalPos + 3 ){
+  for( finalPos = 3; finalPos <= message.length; finalPos ){
 
     final code = message.substring(initialPos, finalPos);
     final character = _getCharacter(code, dictionary);
     desencryptedMessage += character;
 
     initialPos += 3;
+    finalPos += 3;
   }
 
   return desencryptedMessage;
